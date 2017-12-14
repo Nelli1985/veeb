@@ -6,6 +6,7 @@
  * Time: 1:39 PM
  */
 
+header('Refresh: 1');
 for($rida = 1; $rida <= 5; $rida++) {
     $varv = '#';
     for($kord = 1; $kord <= 6; $kord++) {
