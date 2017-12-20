@@ -2,14 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: Acer
- * Date: 12/20/2017
- * Time: 11:28 PM
- */
-
-<?php
-/**
- * Created by PhpStorm.
- * User: Acer
  * Date: 12/14/2017
  * Time: 2:31 PM
  */
