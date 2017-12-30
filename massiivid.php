@@ -101,19 +101,27 @@ function vahetaMinMax(&$massiiv){ // & see märk tekitab lingi, mille abil funkt
     $min = min($massiiv);
     $max = max($massiiv);
     echo 'Minimum = '.$min.'<br />';
-    echo 'Maximum ='.$max.'<br />';
-    for($i = 0; $i < count($massiiv); $i++) {
-        if($massiiv[$i] == $min){
-            $massiiv[$i] = $max;
-        } else if($massiiv[$i] == $max) {
-            $massiiv[$i] = $min;
+    echo 'Maximum = '.$max.'<br />';
+    echo 'Vahetatud miinimumi ja maksimumiga massiiv: '.'<br />';
+    echo '<table border="1">';
+        for($i = 0; $i < count($massiiv); $i++) {
+            echo '<tr>';
+                echo '<td>';
+                    if($massiiv[$i] == $min){
+                        $massiiv[$i] = $max;
+                    } else if($massiiv[$i] == $max) {
+                        $massiiv[$i] = $min;
+                    }
+                    echo $massiiv[$i].'<br />';
+                echo '</td>';
+            echo '</tr>';
         }
-        echo $massiiv[$i].'<br />';
-    }
+    echo '</table>';
 }
 
 vahetaMinMax ($testMassiiv);
-valjastaMassiiv($testMassiiv);
+echo '<hr />';
+
 /*
  * 4.
  * Loo funktsioon nimega elementideKorrutis, mis
@@ -125,6 +133,21 @@ valjastaMassiiv($testMassiiv);
  * Tulemus väljastatakse antud funktsiooni abil kujul:
  * Tulemus: 1 * 6 * 5 = 30
 */
+
+function elementideKorrutis ($massiiv) {
+    $korrutis = 1;
+    for($i = 0; $i < count($massiiv); $i++) {
+        if($massiiv[$i] > 0){
+            if($i % 2 == 0)
+                $korrutis = $korrutis * $massiiv[$i];
+        }
+    }
+    echo 'Massiivi taisarvude paarisarvuliste indeksitega taisarvude korrutis, mis ei ole nullid, on: '.$korrutis.'<br />';
+}
+
+$massiivProov = array(1,0,6,0,0,3,5);
+elementideKorrutis($massiivProov);
+echo '<hr />';
 
 /*
  * 5.
@@ -138,3 +161,15 @@ valjastaMassiiv($testMassiiv);
  * tsükli abil, samuti EI SAA kasutada
  * grupeerimisfunktisoone ega muuta antud massiivi
  * */
+function mitteDubleeri($massiiv){
+    $tulemMassiiv = array();
+    foreach ($massiiv as $arv){
+        if (! in_array($arv, $tulemMassiiv)){
+            $tulemMassiiv[] = $arv;
+        }
+    }
+    valjastaMassiiv($tulemMassiiv);
+}
+
+$massiiv = array(1, 1, 1, 2, 2, 2, 2, 3);
+mitteDubleeri($massiiv);
