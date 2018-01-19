@@ -18,6 +18,7 @@ function vorm(){
    ';
 }
 
+
 function vormiAndmed(){
     echo '<pre>';
     print_r($_POST);
