@@ -22,4 +22,13 @@ class vtekst extends tekst
     function maaraVarv($varv){
         $this->varv = $varv;
     }
+
+    function prindiTekst()
+    {
+        if($this->varv == '') {
+            parent::prindiTekst();
+        } else {
+            echo '<font color="'.$this->varv.'">'.$this->sone.'</font><br />';
+        }
+    }
 }
